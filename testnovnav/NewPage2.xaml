@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testnovnav.NewPage2"
+             Title="NewPage2">
+    <!-- Ресурсы страницы -->
+    <ContentPage.Resources>
+        <Style x:Key="WallStyle" TargetType="BoxView">
+            <Setter Property="BackgroundColor" Value="Gray" />
+        </Style>
+    </ContentPage.Resources>
+    
+    <!-- Основное содержимое страницы -->
+    <Grid>
+        <!-- Label с координатами -->
+        <Label x:Name="CoordinatesLabel"
+           Text=""
+           FontAttributes="Bold"
+           HorizontalOptions="Start"
+           VerticalOptions="Start"
+           Margin="0,0,0,0" />
+
+        <Label Text="выберите помещение" FontSize="17"  FontFamily="Somic" Margin="70,100,0,0" x:Name="textfloor" IsVisible="False"/>
+
+        <Label Text="3" x:Name="floor3num" IsVisible="False" FontFamily="Somic" TextColor="Black" FontSize="20"  Margin="152,98,0,0" />
+
+        <Grid Margin="-70,20,0,0">
+             <Label x:Name="FloorName1"
+               Text="Первый этаж" 
+               FontSize="40" 
+               HorizontalOptions="Center" 
+               TextColor="LightBlue" 
+               FontAttributes="Bold" 
+               IsVisible="False"
+               FontFamily="Somic"/>
+
+        <Label x:Name="FloorName2"
+            Text="Второй этаж" 
+            FontSize="40" 
+            HorizontalOptions="Center" 
+            TextColor="LightGreen" 
+            FontAttributes="Bold" 
+            IsVisible="False"
+            FontFamily="Somic"/>
+
+        <Label x:Name="FloorName3"
+             Text="Третий этаж" 
+             FontSize="40" 
+             HorizontalOptions="Center" 
+             TextColor="LightCoral" 
+             FontAttributes="Bold" 
+             IsVisible="False"
+             FontFamily="Somic"/>
+
+        <Label x:Name="FloorName4"
+             Text="Четвретый этаж" 
+             FontSize="35" 
+             HorizontalOptions="Center" 
+             TextColor="Brown" 
+             FontAttributes="Bold" 
+             IsVisible="False"
+             FontFamily="Somic"/>
+
+        <Label x:Name="FloorName5"
+             Text="Пятый этаж" 
+             FontSize="40" 
+             HorizontalOptions="Center" 
+             TextColor="BlueViolet" 
+             FontAttributes="Bold" 
+             IsVisible="False"
+             FontFamily="Somic"/>
+
+            <!-- Метка комнаты -->
+            <Label x:Name="RoomLabel"
+                Text=""
+                FontAttributes="Bold"
+                TextColor="#2ec095"
+                HorizontalOptions="Center"
+                Margin="0,50,0,20"
+                FontFamily="Somic"
+                   FontSize="17"
+                IsVisible="True" />    
+            
+          
+
+            <Image Source="go.png" HeightRequest="30" Margin="-180,-470,0,0" x:Name="routeman" IsVisible="False"/>
+
+            <Image Source="visit.png"  HeightRequest="20" Margin="-145,-465,0,0" x:Name="visit1" IsVisible="False"  />
+
+            <Image Source="arrow.png" HeightRequest="20" Margin="-105,-465,0,0" x:Name="arrow1" IsVisible="False"  Rotation="90"/>
+
+            <Image Source="stairs.png" HeightRequest="35" Margin="-50,-465,0,0" x:Name="stairs1" IsVisible="False" />
+
+            <Image Source="arrow.png" HeightRequest="20" Margin="0,-465,0,0" x:Name="arrow2" IsVisible="False"  Rotation="0"/>
+
+            <Image Source="arrow.png" HeightRequest="20" Margin="70,-465,0,0"  x:Name="arrow3"  IsVisible="False" Rotation="90"/>
+
+            <Image Source="itlogod.png" x:Name="itlogo" IsVisible="False" HeightRequest="30" Margin="120,-465,0,0" />
+            
+            
+
+
+        </Grid>
+
+  
+
+
+
+        <!-- Переключатель этажей -->
+        <StackLayout Orientation="Vertical"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Start"
+                 Margin="280,80,0,0" Spacing="10">
+            <Button Text="1"  FontAttributes="Bold"  BackgroundColor="#2ec095" Clicked="OnFloor1ButtonClicked" CornerRadius="40" FontFamily="Somic" />
+            <Button Text="2"  FontAttributes="Bold"  BackgroundColor="#2ec095" Clicked="OnFloor2ButtonClicked" CornerRadius="40" FontFamily="Somic"/>
+            <Button Text="3"  FontAttributes="Bold"  BackgroundColor="#2ec095" Clicked="OnFloor3ButtonClicked" CornerRadius="40" FontFamily="Somic"/>
+            <Button Text="4"  FontAttributes="Bold"  BackgroundColor="#2ec095" Clicked="OnFloor4ButtonClicked" CornerRadius="40" FontFamily="Somic"/>
+            <Button Text="5"  FontAttributes="Bold"  BackgroundColor="#2ec095" Clicked="OnFloor5ButtonClicked" CornerRadius="40" FontFamily="Somic"/>
+            <Frame CornerRadius="40" BackgroundColor="#2ec095" BorderColor="Transparent" Margin="0,40,0,0">
+                <Image Source="mappin.png" HeightRequest="20" WidthRequest="20" />
+            </Frame>
+            <Frame CornerRadius="40" BackgroundColor="#2ec095" BorderColor="Transparent">
+                <Image Source="mesto.png" HeightRequest="20" WidthRequest="20" />
+            </Frame>
+            <Frame CornerRadius="40" BackgroundColor="#2ec095" BorderColor="Transparent">
+                <Image Source="clear.png" HeightRequest="20" WidthRequest="20" />
+            </Frame>
+            <Button Margin="0,-215,0,0" x:Name="otkudabutton" HeightRequest="60" Clicked="Button_Clicked_1" CornerRadius="40" BackgroundColor="Transparent"/>
+            <Button Margin="0,2,0,0" HeightRequest="60" x:Name="kuda" Clicked="Button_Clicked_2" CornerRadius="40" BackgroundColor="Transparent" IsEnabled="False"/>
+            <Button Margin="0,2,0,0" HeightRequest="60" Clicked="Button_Clicked_3" CornerRadius="40" BackgroundColor="Transparent"/>
+
+
+        </StackLayout>
+
+        <!-- Область навигации -->
+        <ContentView x:Name="NavigationArea"
+                 WidthRequest="290"
+                 HeightRequest="500"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center"
+                 BackgroundColor="Transparent"
+                 Margin="-60,80,0,0">
+            <!-- Канвас для рисования элементов -->
+            <AbsoluteLayout>
+                <Image x:Name="FloorPlanImage"
+                   Source="floorone.jpg"
+                   HeightRequest="260" 
+                   WidthRequest="480"
+                   Rotation="-90"
+                   Aspect="AspectFill"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"
+                   AbsoluteLayout.LayoutFlags="All" />
+                <!-- Первый этаж -->
+                <AbsoluteLayout x:Name="Floor1Layout">
+
+                    <!-- Стены для первого этажа -->
+                    <BoxView x:Name="Wall1_Floor1"
+                         Style="{StaticResource WallStyle}"
+                         WidthRequest="8"
+                         IsVisible="False"
+                         HeightRequest="430"
+                         AbsoluteLayout.LayoutBounds="16,75,10,300"
+                         AbsoluteLayout.LayoutFlags="None" />
+
+                    <Button BackgroundColor="Transparent" Margin="24,200,0,0" Clicked="Button_Clicked" IsVisible="False"
+                            HeightRequest="140" WidthRequest="150" x:Name="otkuda"/>
+
+                    <Image Source="visit.png" Margin="80,210,0,0" HeightRequest="45" x:Name="otkudaimg" IsVisible="False"/>
+
+                    <BoxView x:Name="Wall2_Floor1"
+                         Style="{StaticResource WallStyle}"
+                         WidthRequest="4"
+                         HeightRequest="370"
+                         IsVisible="False"
+                         AbsoluteLayout.LayoutBounds="183,110,10,200"
+                         AbsoluteLayout.LayoutFlags="None" />
+
+                    <BoxView x:Name="Wall3_Floor1"
+                        Style="{StaticResource WallStyle}"
+                        WidthRequest="30"
+                        HeightRequest="4"
+                        IsVisible="False"
+                        AbsoluteLayout.LayoutBounds="97,345,10,200"
+                        AbsoluteLayout.LayoutFlags="None" />
+
+                    <BoxView x:Name="Wall4_Floor1"
+                      Style="{StaticResource WallStyle}"
+                      WidthRequest="35"
+                      HeightRequest="120"
+                      IsVisible="False"
+                      AbsoluteLayout.LayoutBounds="87,355,10,200"
+                      AbsoluteLayout.LayoutFlags="None" />
+
+                    <BoxView x:Name="Wall5_Floor1"
+                        Style="{StaticResource WallStyle}"
+                        WidthRequest="4"
+                        HeightRequest="70"
+                        IsVisible="False"
+                        AbsoluteLayout.LayoutBounds="120,130,10,200"
+                        AbsoluteLayout.LayoutFlags="None" />
+
+                    <BoxView x:Name="Wall6_Floor1"
+                          Style="{StaticResource WallStyle}"
+                          WidthRequest="70"
+                          HeightRequest="4"
+                          IsVisible="False"
+                          AbsoluteLayout.LayoutBounds="40,200,10,200"
+                          AbsoluteLayout.LayoutFlags="None" />
+
+                    <AbsoluteLayout x:Name="routeone" IsVisible="False">
+
+                        <Image Source="arrow.png" HeightRequest="20"   AbsoluteLayout.LayoutBounds="140,250,10,200" />
+
+                        <Label Text="2" AbsoluteLayout.LayoutBounds="148,340,10,200" />
+
+                        <Line
+                        X1="0" Y1="0"
+                        X2="140" Y2="0"
+                        Stroke="LightCoral"
+                         AbsoluteLayout.LayoutBounds="60,290,10,200"
+                        Rotation="90"
+                        StrokeThickness="4"
+                        HorizontalOptions="Center" />
+
+                    <Line
+                     X1="0" Y1="30"
+                     X2="30" Y2="0"
+                     Stroke="LightCoral"
+                      AbsoluteLayout.LayoutBounds="60,206,10,200"
+                     Rotation="90"
+                     StrokeThickness="4"
+                     HorizontalOptions="Center" />
+
+                    <Line
+                      X1="0" Y1="0"
+                      X2="30" Y2="0"
+                      Stroke="LightCoral"
+                       AbsoluteLayout.LayoutBounds="142,456,10,200"
+                      Rotation="0"
+                      StrokeThickness="4"
+                      HorizontalOptions="Center" />
+
+                    <Line
+                        X1="0" Y1="0"
+                        X2="100" Y2="0"
+                        Stroke="LightCoral"
+                         AbsoluteLayout.LayoutBounds="30,310,10,200"
+                        Rotation="90"
+                        StrokeThickness="4"
+                        HorizontalOptions="Center" />
+
+                    <Line
+                       X1="0" Y1="0"
+                       X2="15" Y2="0"
+                       Stroke="LightCoral"
+                        AbsoluteLayout.LayoutBounds="136,360,10,200"
+                       Rotation="0"
+                       StrokeThickness="4"
+                       HorizontalOptions="Center" />
+
+                        <Line
+                         X1="0" Y1="5"
+                         X2="8" Y2="0"
+                         Stroke="LightCoral"
+                          AbsoluteLayout.LayoutBounds="138,360,10,200"
+                         Rotation="0"
+                         StrokeThickness="4"
+                         HorizontalOptions="Center" />
+
+                        <Line
+                          X1="0" Y1="0"
+                          X2="8" Y2="5"
+                          Stroke="LightCoral"
+                           AbsoluteLayout.LayoutBounds="138,355,10,200"
+                          Rotation="0"
+                          StrokeThickness="4"
+                          HorizontalOptions="Center" />
+                    </AbsoluteLayout>
+                   
+
+                    <!-- Комната для первого этажа -->
+                    <BoxView x:Name="Room1_Floor1"
+                         IsVisible="False"
+                         WidthRequest="190"
+                         HeightRequest="155"
+                         AbsoluteLayout.LayoutBounds="50,220,80,80"
+                         AbsoluteLayout.LayoutFlags="None" />
+
+                    <BoxView x:Name="Room2_Floor1"
+                          IsVisible="False"
+                             BackgroundColor="Gray"
+                          WidthRequest="58"
+                          HeightRequest="155"
+                          AbsoluteLayout.LayoutBounds="110,110,80,80"
+                          AbsoluteLayout.LayoutFlags="None" />
+
+                    <BoxView x:Name="Room3_Floor1"
+                   IsVisible="False"
+                      BackgroundColor="Gray"
+                   WidthRequest="58"
+                   HeightRequest="120"
+                   AbsoluteLayout.LayoutBounds="180,130,80,80"
+                   AbsoluteLayout.LayoutFlags="None" />
+
+                    <BoxView x:Name="Room4_Floor1"
+                    IsVisible="False"
+                       BackgroundColor="Gray"
+                    WidthRequest="58"
+                    HeightRequest="140"
+                    AbsoluteLayout.LayoutBounds="110,370,80,80"
+                    AbsoluteLayout.LayoutFlags="None" />
+                </AbsoluteLayout>
+
+                <!-- Второй этаж -->
+                <AbsoluteLayout x:Name="Floor2Layout" IsVisible="False">
+                    <BoxView x:Name="Wall1_Floor2"
+                              IsVisible="False"
+                         Style="{StaticResource WallStyle}"
+                          WidthRequest="4"
+                         HeightRequest="130"
+                         AbsoluteLayout.LayoutBounds="120,340,10,250"
+                         AbsoluteLayout.LayoutFlags="None" />
+
+                    <BoxView x:Name="Wall2_Floor2"
+                         IsVisible="False"
+                         Style="{StaticResource WallStyle}"
+                         WidthRequest="4"
+                         HeightRequest="130"
+                         AbsoluteLayout.LayoutBounds="190,340,10,250"
+                         AbsoluteLayout.LayoutFlags="None" />
+
+                    <!-- Комната для второго этажа -->
+                    <BoxView x:Name="Room1_Floor2"
+                         Color="LightGreen"
+                             IsVisible="False"
+                         WidthRequest="250"
+                         HeightRequest="200"
+                         AbsoluteLayout.LayoutBounds="100,170,100,100"
+                         AbsoluteLayout.LayoutFlags="None" />
+
+                    <BoxView x:Name="Room2_Floor2"
+                            IsVisible="False"
+                            BackgroundColor="Gray"
+                            WidthRequest="58"
+                            HeightRequest="140"
+                            AbsoluteLayout.LayoutBounds="110,370,80,80"
+                            AbsoluteLayout.LayoutFlags="None" />
+
+                    <AbsoluteLayout x:Name="routetwo" IsVisible="False">
+
+                        <Image Source="arrow.png" HeightRequest="20"   AbsoluteLayout.LayoutBounds="150,252,10,200" />
+
+                        <Label Text="3" AbsoluteLayout.LayoutBounds="158,342,10,200" />
+
+                        <Line
+                         X1="0" Y1="0"
+                         X2="90" Y2="0"
+                         Stroke="LightCoral"
+                          AbsoluteLayout.LayoutBounds="60,315,10,200"
+                         Rotation="90"
+                         StrokeThickness="4"
+                         HorizontalOptions="Center" />         
+
+                        <Line
+                           X1="0" Y1="0"
+                           X2="30" Y2="0"
+                           Stroke="LightCoral"
+                            AbsoluteLayout.LayoutBounds="142,456,10,200"
+                           Rotation="0"
+                           StrokeThickness="4"
+                           HorizontalOptions="Center" />
+
+                        <Line
+                             X1="0" Y1="0"
+                             X2="100" Y2="0"
+                             Stroke="LightCoral"
+                              AbsoluteLayout.LayoutBounds="30,310,10,200"
+                             Rotation="90"
+                             StrokeThickness="4"
+                             HorizontalOptions="Center" />
+
+                        <Line
+                            X1="0" Y1="0"
+                            X2="15" Y2="0"
+                            Stroke="LightCoral"
+                             AbsoluteLayout.LayoutBounds="136,360,10,200"
+                            Rotation="0"
+                            StrokeThickness="4"
+                            HorizontalOptions="Center" />       
+
+                        <Line
+                          X1="0" Y1="5"
+                          X2="8" Y2="0"
+                          Stroke="LightCoral"
+                           AbsoluteLayout.LayoutBounds="138,360,10,200"
+                          Rotation="0"
+                          StrokeThickness="4"
+                          HorizontalOptions="Center" />
+
+                        <Line
+                           X1="0" Y1="0"
+                           X2="8" Y2="5"
+                           Stroke="LightCoral"
+                            AbsoluteLayout.LayoutBounds="138,355,10,200"
+                           Rotation="0"
+                           StrokeThickness="4"
+                           HorizontalOptions="Center" />
+
+                     
+                    </AbsoluteLayout>
+
+                </AbsoluteLayout>
+
+                <!-- Третий этаж -->
+                <AbsoluteLayout x:Name="Floor3Layout" IsVisible="False">
+                    <BoxView x:Name="Wall1_Floor3"
+                         Style="{StaticResource WallStyle}"
+                         WidthRequest="4"
+                         HeightRequest="140"
+                         IsVisible="False"
+                         AbsoluteLayout.LayoutBounds="117,350,10,350"
+                         AbsoluteLayout.LayoutFlags="None" />
+
+                    <BoxView x:Name="Wall2_Floor3"
+                         Style="{StaticResource WallStyle}"
+                         WidthRequest="4"
+                         HeightRequest="140"
+                         IsVisible="False"
+                         AbsoluteLayout.LayoutBounds="118,150,10,250"
+                         AbsoluteLayout.LayoutFlags="None" />
+
+                    <Button BackgroundColor="Transparent" Margin="24,155,0,0" Clicked="kudabut_Clicked" IsVisible="False"
+         HeightRequest="180" WidthRequest="100" x:Name="kudabut"/>
+
+                    <Image Source="itlogod.png" Margin="50,210,0,0" HeightRequest="45" x:Name="kudaimg" IsVisible="False"/>
+
+                    <AbsoluteLayout x:Name="routethree" IsVisible="False">
+
+                        <Line
+      X1="0" Y1="0"
+      X2="90" Y2="0"
+      Stroke="LightCoral"
+       AbsoluteLayout.LayoutBounds="60,315,10,200"
+      Rotation="90"
+      StrokeThickness="4"
+      HorizontalOptions="Center" />
+
+                        <Line
+        X1="0" Y1="0"
+        X2="25" Y2="0"
+        Stroke="LightCoral"
+         AbsoluteLayout.LayoutBounds="146,456,10,200"
+        Rotation="0"
+        StrokeThickness="4"
+        HorizontalOptions="Center" />
+
+                        <Line
+          X1="0" Y1="0"
+          X2="154" Y2="0"
+          Stroke="LightCoral"
+           AbsoluteLayout.LayoutBounds="35,283,10,200"
+          Rotation="90"
+          StrokeThickness="4"
+          HorizontalOptions="Center" />
+
+                        <Line
+         X1="0" Y1="0"
+         X2="15" Y2="0"
+         Stroke="LightCoral"
+          AbsoluteLayout.LayoutBounds="127,306,10,200"
+         Rotation="0"
+         StrokeThickness="4"
+         HorizontalOptions="Center" />
+
+                        <Line
+       X1="0" Y1="0"
+       X2="8" Y2="5"
+       Stroke="LightCoral"
+        AbsoluteLayout.LayoutBounds="124,307,10,200"
+       Rotation="0"
+       StrokeThickness="4"
+       HorizontalOptions="Center" />
+
+                        <Line
+        X1="0" Y1="5"
+        X2="8" Y2="0"
+        Stroke="LightCoral"
+         AbsoluteLayout.LayoutBounds="124,300,10,200"
+        Rotation="0"
+        StrokeThickness="4"
+        HorizontalOptions="Center" />
+
+
+                    </AbsoluteLayout>
+
+
+
+
+                    <!-- Комната для второго этажа -->
+                    <BoxView x:Name="Room1_Floor3"
+                         Color="LightGreen"
+                         IsVisible="False"
+                         WidthRequest="100"
+                         HeightRequest="180"
+                         AbsoluteLayout.LayoutBounds="20,190,100,100"
+                         AbsoluteLayout.LayoutFlags="None" />
+
+                    <!-- Комната для второго этажа -->
+                     <BoxView x:Name="Room2_Floor3"
+                     Color="LightGreen"
+                     WidthRequest="100"
+                     IsVisible="False"
+                     HeightRequest="160"
+                     AbsoluteLayout.LayoutBounds="20,360,100,100"
+                     AbsoluteLayout.LayoutFlags="None" />
+
+                    <BoxView x:Name="Room3_Floor3"
+                    Color="LightGreen"
+                    WidthRequest="50"
+                    IsVisible="False"
+                    HeightRequest="180"
+                    AbsoluteLayout.LayoutBounds="120,160,100,100"
+                    AbsoluteLayout.LayoutFlags="None" />
+                    
+
+                </AbsoluteLayout>
+
+                <!-- Третий этаж -->
+                <AbsoluteLayout x:Name="Floor4Layout" IsVisible="False">
+                    <BoxView x:Name="Wall1_Floor4"
+                         Style="{StaticResource WallStyle}"
+                         WidthRequest="10"
+                         HeightRequest="350"
+                         AbsoluteLayout.LayoutBounds="70,80,10,350"
+                         AbsoluteLayout.LayoutFlags="None" />
+
+                    <BoxView x:Name="Wall2_Floor4"
+                         Style="{StaticResource WallStyle}"
+                         WidthRequest="10"
+                         HeightRequest="250"
+                         AbsoluteLayout.LayoutBounds="170,50,10,250"
+                         AbsoluteLayout.LayoutFlags="None" />       
+
+                    <!-- Комната для второго этажа -->
+                    <BoxView x:Name="Room1_Floor4"
+                         Color="LightGreen"
+                         WidthRequest="100"
+                         HeightRequest="100"
+                         AbsoluteLayout.LayoutBounds="80,120,100,100"
+                         AbsoluteLayout.LayoutFlags="None" />
+                </AbsoluteLayout>
+
+                <!-- Третий этаж -->
+                <AbsoluteLayout x:Name="Floor5Layout" IsVisible="False">
+                    <BoxView x:Name="Wall1_Floor5"
+                         Style="{StaticResource WallStyle}"
+                         WidthRequest="10"
+                         HeightRequest="350"
+                         AbsoluteLayout.LayoutBounds="70,80,10,350"
+                         AbsoluteLayout.LayoutFlags="None" />   
+
+                    <BoxView x:Name="Wall2_Floor5"
+                         Style="{StaticResource WallStyle}"
+                         WidthRequest="10"
+                         HeightRequest="250"
+                         AbsoluteLayout.LayoutBounds="170,50,10,250"
+                         AbsoluteLayout.LayoutFlags="None" />
+
+                    <!-- Комната для второго этажа -->
+                    <BoxView x:Name="Room1_Floor5"
+                         Color="LightGreen"
+                         WidthRequest="100"
+                         HeightRequest="100"
+                         AbsoluteLayout.LayoutBounds="80,120,100,100"
+                         AbsoluteLayout.LayoutFlags="None" />
+                </AbsoluteLayout>
+
+                <!-- Метка пользователя -->
+                <Image x:Name="UserMarker"
+                   Source="points.png"
+                   WidthRequest="25"
+                   HeightRequest="25"
+                   AbsoluteLayout.LayoutBounds="135,240,20,20"
+                   AbsoluteLayout.LayoutFlags="None" />
+            </AbsoluteLayout>
+        </ContentView>
+
+       
+    </Grid>
+</ContentPage>

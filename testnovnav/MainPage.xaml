@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testnovnav.MainPage">
+
+    <StackLayout>
+
+        <!-- WebView для отображения карты -->
+        <WebView x:Name="MapWebView"
+          HeightRequest="800" WidthRequest="400"
+           VerticalOptions="FillAndExpand"
+           HorizontalOptions="FillAndExpand" />
+
+        <Grid  x:Name="timedlinbar" Margin="170,-290,0,0"  IsVisible="False" >
+            <HorizontalStackLayout Spacing="23" Padding="10">
+                <Border  HeightRequest="70" WidthRequest="70"  StrokeShape="RoundRectangle 80,80,80,80"  BackgroundColor="#2ec095" StrokeThickness="0">
+                    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                        <Image Source="clock.png" HeightRequest="30" Margin="0,0,0,0"/>
+                        <Label Text="05:10" FontFamily="Somic" FontAttributes="Bold" TextColor="White" FontSize="13"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border  HeightRequest="30" WidthRequest="50" Margin="-35,-100,0,0" StrokeShape="RoundRectangle 40,40,5,5"  BackgroundColor="#2ec095" StrokeThickness="0">
+                    <Image Source="close.png" HeightRequest="25"/>
+                </Border>
+
+                <Border  HeightRequest="70" WidthRequest="70"  StrokeShape="RoundRectangle 40,40,40,40"  Margin="-35,0,0,0"  BackgroundColor="#03624c" StrokeThickness="0">
+                    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                        <Image Source="shirina.png" HeightRequest="30" Margin="0,-3,0,0"/>
+                        <Label Text="500.0 м." FontFamily="Somic" FontAttributes="Bold" TextColor="White" FontSize="10"/>
+                    </VerticalStackLayout>
+                </Border>
+            </HorizontalStackLayout>
+            <StackLayout>
+                <Button HeightRequest="37" WidthRequest="50" CornerRadius="12"  BackgroundColor="Transparent" Margin="0,75,0,0" Clicked="Button_Clicked"/>
+            </StackLayout>
+        </Grid>
+
+        <HorizontalStackLayout Margin="20,-370,0,0" Spacing="5"  x:Name="navbar" IsVisible="False" Opacity="0.9">
+
+            <Border StrokeShape="RoundRectangle 30,30,30,30"  HeightRequest="30" WidthRequest="200" BackgroundColor="#2ec095" Margin="0,-105,-205,0" Opacity="0.8" Stroke="Transparent" IsVisible="False" x:Name="bildcheck">
+                 <Label Text="Вы находитесь в здании" FontFamily="Somic" FontAttributes="Bold" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center"/>
+            </Border>
+           
+
+            <Border HeightRequest="50" WidthRequest="30" StrokeShape="RoundRectangle 5,50,30,5" BackgroundColor="#2ec095"  Margin="0,100,-28,0" StrokeThickness="0">
+                <Image Source="close.png" />
+            </Border>
+
+            <Button HeightRequest="50" WidthRequest="50" CornerRadius="30" BackgroundColor="#2ec095" ImageSource="mappin.png" Margin="0,0,0,10" x:Name="otkuda" Clicked="FromButton_Clicked"/>
+
+            <Button HeightRequest="50" WidthRequest="50" CornerRadius="30" BackgroundColor="#2ec095" ImageSource="mesto.png" x:Name="ToButton"  Margin="0,0,0,10"  Clicked="ToButton_Clicked" IsEnabled="False"/>
+
+            <Button HeightRequest="50" WidthRequest="50" CornerRadius="30" BackgroundColor="#2ec095" ImageSource="strelka.png" Rotation="40" Margin="-82,100,0,0" Clicked="LocateButton_Clicked"/>
+
+            <Button HeightRequest="50" WidthRequest="50" CornerRadius="30" BackgroundColor="#2ec095" ImageSource="clear.png" Margin="0,100,0,0"  Clicked="ClearButton_Clicked"/>
+
+
+
+            <Border x:Name="menubar" HeightRequest="50" WidthRequest="50" StrokeShape="RoundRectangle 30,30,30,30" BackgroundColor="#2ec095" Margin="-28,0,0,10" StrokeThickness="0" IsVisible="False">
+                <Image Source="indoor.png" HeightRequest="30" />
+            </Border>
+
+            <Button x:Name="butmenubar" HeightRequest="50" WidthRequest="50" CornerRadius="30" BackgroundColor="Transparent" Margin="-55,0,0,10" IsEnabled="False" IsVisible="False" Clicked="plant"/>
+
+        </HorizontalStackLayout>
+
+        <Button HeightRequest="50" WidthRequest="30" CornerRadius="0" BackgroundColor="Transparent" Margin="-289,-270,0,0" x:Name="butnavbar" IsEnabled="False" IsVisible="False" Clicked="butnavbar_Clicked"/>
+
+        <Border HeightRequest="90" WidthRequest="340" StrokeShape="RoundRectangle 10,10,30,30" Margin="0,-115,0,0" BackgroundColor="#aacbc4" StrokeThickness="2" Stroke="Aquamarine" Opacity="0.8">
+
+            <Grid>
+                <HorizontalStackLayout Spacing="10" Padding="8">
+                    <Border x:Name="otkudabord"  HeightRequest="70" WidthRequest="155"  StrokeShape="RoundRectangle 7,7,25,25" BackgroundColor="#2ec095" Stroke="White" StrokeThickness="0">                      
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,5">
+                            <Image Source="route.png" HeightRequest="35" />
+                            <Label Text="построить маршрут" FontFamily="Somic" FontAttributes="Bold" TextColor="White" FontSize="14" VerticalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border x:Name="kudabord" HeightRequest="70" WidthRequest="155" StrokeShape="RoundRectangle 7,7,25,25" BackgroundColor="#02c5cc" Stroke="White" StrokeThickness="0">
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image Source="kvant.png" HeightRequest="30" />
+                            <Label Text="indoor навигация" FontFamily="Somic" FontAttributes="Bold" TextColor="White" FontSize="15" VerticalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout  Spacing="10" Padding="8">
+                    <!--Откуда-->
+                    <Button x:Name="butotkuda"  HeightRequest="70" WidthRequest="155" CornerRadius="10" BackgroundColor="Transparent" Clicked="butotkuda_Clicked" IsEnabled="True"/>
+                    <!--Куда-->
+                    <Button HeightRequest="70" WidthRequest="155" CornerRadius="10" BackgroundColor="Transparent" Clicked="indoors"/>
+                    
+                </HorizontalStackLayout>
+
+            </Grid>
+
+        </Border>
+
+
+    </StackLayout>
+
+
+
+   
+</ContentPage>

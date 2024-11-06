@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="testnovnav.NewPage1" x:Name="floorspage" BackgroundColor="Gray">
+    <Grid>
+        <!-- Altitude Label in top-left corner -->
+        <Label x:Name="AltitudeLabel" Text="0.00 м" FontSize="12" Margin="10,0,0,0" TextColor="Black"/>
+
+
+            <!-- StackLayout for Floors -->
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,0">
+
+                <!-- Floor Frames -->
+                <Frame x:Name="FirstFloorFrame" IsVisible="False" BackgroundColor="White" CornerRadius="10" HeightRequest="500" WidthRequest="400" BorderColor="Transparent">
+                    <VerticalStackLayout>
+                        <Label Text="Первый этаж" FontSize="40" HorizontalOptions="Center" VerticalOptions="Center" TextColor="LightBlue" FontAttributes="Bold" FontFamily="Somic"/>
+                        <Image Source="floorone.jpg" HeightRequest="400" WidthRequest="580" Margin="70,-40,0,0" />
+                    </VerticalStackLayout>
+                    
+                </Frame>
+
+                <Frame x:Name="SecondFloorFrame" IsVisible="False" BackgroundColor="White" CornerRadius="10" Padding="20" HeightRequest="500" WidthRequest="400" BorderColor="Transparent">
+                    <VerticalStackLayout>
+                        <Label Text="Второй этаж" FontSize="40"  HorizontalOptions="Center" VerticalOptions="Center" TextColor="LightGreen" FontFamily="Somic"  FontAttributes="Bold" />
+                        <Image Source="floortwo.jpg" HeightRequest="400" WidthRequest="580" Margin="70,-40,0,0" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame x:Name="ThirdFloorFrame" IsVisible="False" BackgroundColor="White" CornerRadius="10" Padding="20" HeightRequest="500" WidthRequest="400" BorderColor="Transparent">
+                    <VerticalStackLayout>
+                        <Label Text="Третий этаж"  FontSize="40"  HorizontalOptions="Center" VerticalOptions="Center"  TextColor="LightCoral" FontFamily="Somic"  FontAttributes="Bold" />
+                        <Image Source="floorthree.jpg" HeightRequest="400" WidthRequest="580" Margin="70,-40,0,0" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame x:Name="FourFloorFrame" IsVisible="False" BackgroundColor="White" CornerRadius="10" Padding="20" HeightRequest="500" WidthRequest="400" BorderColor="Transparent">
+                    <VerticalStackLayout>
+                        <Label Text="Четвертый этаж"  FontSize="40"  HorizontalOptions="Center" VerticalOptions="Center" TextColor="Brown"  FontFamily="Somic"  FontAttributes="Bold" />
+                        <Image Source="floorfour.jpg" HeightRequest="400" WidthRequest="580" Margin="70,-40,0,0" />
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame x:Name="FiveFloorFrame" IsVisible="False" BackgroundColor="White" CornerRadius="10" Padding="20" HeightRequest="500" WidthRequest="400" BorderColor="Transparent">
+                    <VerticalStackLayout>
+                        <Label Text="Пятый этаж"  FontSize="40"  HorizontalOptions="Center" VerticalOptions="Center" TextColor="BlueViolet"  FontFamily="Somic"  FontAttributes="Bold" />
+                        <Image Source="floorfive.jpg" HeightRequest="400" WidthRequest="580" Margin="70,-40,0,0" />
+                    </VerticalStackLayout>
+                </Frame>
+        </StackLayout>
+
+        <Grid>
+            
+      
+        
+        <VerticalStackLayout Margin="10,445,10,0" IsVisible="False" x:Name="floorsmenu">
+            <HorizontalStackLayout Spacing="8" Opacity="0.8">
+                <Border HeightRequest="50" WidthRequest="35" StrokeShape="RoundRectangle 30,5,5,30" BackgroundColor="#2ec095"  Margin="0,0,0,0" StrokeThickness="0">
+                    <Label Text="1" TextColor="White" FontAttributes="Bold" FontFamily="Somic" FontSize="28" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Border>
+
+                <Border HeightRequest="50" WidthRequest="35" StrokeShape="RoundRectangle 5,5,30,30" BackgroundColor="#2ec095"  Margin="0,0,0,0" StrokeThickness="0">
+                        <Label Text="2" TextColor="White" FontAttributes="Bold" FontFamily="Somic" FontSize="28" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Border>
+
+                <Border HeightRequest="50" WidthRequest="35" StrokeShape="RoundRectangle 5,5,30,30" BackgroundColor="#2ec095"  Margin="0,0,0,0" StrokeThickness="0">
+                        <Label Text="3" TextColor="White" FontAttributes="Bold" FontFamily="Somic" FontSize="28" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Border>
+
+                <Border HeightRequest="50" WidthRequest="35" StrokeShape="RoundRectangle 5,5,30,30" BackgroundColor="#2ec095"  Margin="0,0,0,0" StrokeThickness="0">
+                        <Label Text="4" TextColor="White" FontAttributes="Bold" FontFamily="Somic" FontSize="28" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Border>
+
+                <Border HeightRequest="50" WidthRequest="35" StrokeShape="RoundRectangle 5,30,30,5" BackgroundColor="#2ec095"  Margin="0,0,0,0" StrokeThickness="0">
+                        <Label Text="5" TextColor="White" FontAttributes="Bold" FontFamily="Somic" FontSize="28" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Border>
+                <HorizontalStackLayout Spacing="8" Margin="-216,0,0,0" Opacity="0.2">
+                        <Button Clicked="FloorButton1_Clicked" HeightRequest="54" WidthRequest="35" CornerRadius="30" BackgroundColor="Transparent"/>
+                    <Button Clicked="FloorButton2_Clicked" HeightRequest="54" WidthRequest="35" CornerRadius="30" BackgroundColor="Transparent"/>
+                    <Button Clicked="FloorButton3_Clicked" HeightRequest="54" WidthRequest="35" CornerRadius="30" BackgroundColor="Transparent"/>
+                    <Button Clicked="FloorButton4_Clicked" HeightRequest="54" WidthRequest="35" CornerRadius="30" BackgroundColor="Transparent"/>
+                    <Button Clicked="FloorButton5_Clicked" HeightRequest="54" WidthRequest="35" CornerRadius="30" BackgroundColor="Transparent"/>
+                </HorizontalStackLayout>
+
+            </HorizontalStackLayout>
+            <HorizontalStackLayout  Margin="0,8,0,0" Opacity="0.8" Spacing="8">
+                <Border HeightRequest="50" WidthRequest="35" StrokeShape="RoundRectangle 5,50,30,5" BackgroundColor="#2ec095"  Margin="0,0,0,0" StrokeThickness="0">
+                    <Image Source="mappin.png" HeightRequest="25"/>
+                </Border>
+                <Border HeightRequest="50" WidthRequest="35" StrokeShape="RoundRectangle 30,30,5,5" BackgroundColor="#2ec095"  Margin="0,0,0,0" StrokeThickness="0">
+                    <Image Source="mesto.png" HeightRequest="25"/>
+                </Border>
+                <Border HeightRequest="50" WidthRequest="35" StrokeShape="RoundRectangle 30,30,5,5" BackgroundColor="#2ec095"  Margin="0,0,0,0" StrokeThickness="0">
+                    <Image Source="strelka.png" HeightRequest="25" />
+                </Border>
+                <Border HeightRequest="50" WidthRequest="35" StrokeShape="RoundRectangle 30,30,5,5" BackgroundColor="#2ec095"  Margin="0,0,0,0" StrokeThickness="0">
+                    <Image Source="clear.png" HeightRequest="25" />
+                </Border>
+                <Border HeightRequest="50" WidthRequest="35" StrokeShape="RoundRectangle 30,5,5,30" BackgroundColor="#2ec095"  Margin="0,0,0,0" StrokeThickness="0">
+                    <Image Source="close.png" HeightRequest="25" />
+                </Border>
+                <HorizontalStackLayout  Spacing="8" Margin="-216,0,0,0" Opacity="0.2">
+                    <Button Clicked="FloorButton1_Clicked" HeightRequest="54" WidthRequest="35" CornerRadius="30"  BackgroundColor="Transparent"/>
+                    <Button  Clicked="FloorButton2_Clicked" HeightRequest="54" WidthRequest="35" CornerRadius="30"  BackgroundColor="Transparent"/>
+                    <Button Clicked="FloorButton3_Clicked"  HeightRequest="54" WidthRequest="35" CornerRadius="30"  BackgroundColor="Transparent"/>
+                    <Button  Clicked="FloorButton4_Clicked"  HeightRequest="54" WidthRequest="35" CornerRadius="30" BackgroundColor="Transparent"/>
+                    <Button  Clicked="Button_Clicked_1"  HeightRequest="54" WidthRequest="35" CornerRadius="30" BackgroundColor="Transparent"/>
+                    </HorizontalStackLayout>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <!-- Side Buttons -->
+        <StackLayout Margin="10,555,10,0">
+            <Border HeightRequest="90" WidthRequest="340" StrokeShape="RoundRectangle 10,10,30,30" Margin="0,10,0,0" BackgroundColor="#aacbc4" StrokeThickness="2" Stroke="Aquamarine" Opacity="0.8">
+
+                <Grid>
+                    <HorizontalStackLayout Spacing="10" Padding="8">
+                        <Border x:Name="otkudabord"  HeightRequest="70" WidthRequest="155"  StrokeShape="RoundRectangle 7,7,25,25" BackgroundColor="#2ec095" Stroke="White" StrokeThickness="0">
+                            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,5">
+                                <Image Source="indoor.png" HeightRequest="35" />
+                                <Label Text="навигация в здании" FontFamily="Somic" FontAttributes="Bold" TextColor="White" FontSize="15" VerticalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <Border x:Name="kudabord" HeightRequest="70" WidthRequest="155" StrokeShape="RoundRectangle 7,7,25,25" BackgroundColor="#02c5cc" Stroke="White" StrokeThickness="0">
+                            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                <Image Source="map.png" HeightRequest="30" />
+                                <Label Text="вернуться на карту" FontFamily="Somic" FontAttributes="Bold" TextColor="White" FontSize="15" VerticalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout  Spacing="10" Padding="8">
+                        <!--Откуда-->
+                        <Button x:Name="butotkuda"  HeightRequest="70" WidthRequest="155" CornerRadius="10" BackgroundColor="Transparent" Clicked="butotkuda_Clicked" IsEnabled="True"/>
+                        <!--Куда-->
+                        <Button HeightRequest="70" WidthRequest="155" CornerRadius="10" BackgroundColor="Transparent" Clicked="Button_Clicked"/>
+
+                    </HorizontalStackLayout>
+
+                </Grid>
+
+            </Border>
+        </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
